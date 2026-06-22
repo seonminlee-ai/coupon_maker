@@ -6,6 +6,8 @@ const TEMPLATE_1_BASE_SRC = '/templates/opening-coupon/coupon-template-1-base.pn
 const TEMPLATE_1_REFERENCE_SRC = '/templates/opening-coupon/coupon-template-1-reference.png';
 const TEMPLATE_2_BASE_SRC = '/templates/opening-coupon/coupon-template-2-base.png';
 const TEMPLATE_2_REFERENCE_SRC = '/templates/opening-coupon/coupon-template-2-reference.png';
+const TEMPLATE_3_BASE_SRC = '/templates/coupon 3/coupon-template-3-base.png';
+const TEMPLATE_3_REFERENCE_SRC = '/templates/coupon 3/coupon-template-3-reference.png';
 
 const TEMPLATE_PRESETS = {
   template1: {
@@ -23,6 +25,14 @@ const TEMPLATE_PRESETS = {
     bgColor: '#FFFFFF',
     title: '무진장 쇼핑 지원 쿠폰 12%',
     date: '무신사만의 쇼핑 혜택',
+  },
+  template3: {
+    label: '3번 무신사 티켓 쿠폰',
+    baseSrc: TEMPLATE_3_BASE_SRC,
+    referenceSrc: TEMPLATE_3_REFERENCE_SRC,
+    bgColor: '#FFFFFF',
+    title: '쿠폰텍스트를입력해주세요18자',
+    date: '쿠폰텍스트를입력해주세요18자',
   },
 };
 
