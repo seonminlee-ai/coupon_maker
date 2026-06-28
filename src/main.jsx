@@ -711,6 +711,8 @@ function App() {
 
     const width = baseImage.naturalWidth || baseImage.width;
     const height = baseImage.naturalHeight || baseImage.height;
+    const useReferenceGuide = isAdmin && showGuide && referenceImage;
+    const previewImage = useReferenceGuide ? referenceImage : baseImage;
     canvas.width = width;
     canvas.height = height;
     const ctx = canvas.getContext('2d');
@@ -719,7 +721,7 @@ function App() {
     ctx.clearRect(0, 0, width, height);
     ctx.fillStyle = template.bgColor;
     ctx.fillRect(0, 0, width, height);
-    ctx.drawImage(baseImage, 0, 0, width, height);
+    ctx.drawImage(previewImage, 0, 0, width, height);
 
     textLayers.forEach(({ key, text, label }) => {
       const block = template.textBlocks[key];
@@ -733,10 +735,12 @@ function App() {
       });
       const cornersArray = getCornersArray(block.corners);
 
-      drawWarpedCanvas(ctx, textCanvas, cornersArray, 24);
+      if (!useReferenceGuide) {
+        drawWarpedCanvas(ctx, textCanvas, cornersArray, 24);
+      }
       if (showGuide) drawGuide(ctx, cornersArray, label, textBlockGuideColors[key]);
     });
-  }, [baseImage, template, textLayers]);
+  }, [baseImage, isAdmin, referenceImage, template, textLayers]);
 
   useEffect(() => {
     drawFinal(previewRef.current, isAdmin);
