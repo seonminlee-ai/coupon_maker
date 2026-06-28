@@ -8,6 +8,8 @@ const TEMPLATE_2_BASE_SRC = '/templates/opening-coupon/coupon-template-2-base.pn
 const TEMPLATE_2_REFERENCE_SRC = '/templates/opening-coupon/coupon-template-2-reference.png';
 const TEMPLATE_3_BASE_SRC = '/templates/coupon 3/coupon-template-3-base.png';
 const TEMPLATE_3_REFERENCE_SRC = '/templates/coupon 3/coupon-template-3-reference.png';
+const TEMPLATE_4_BASE_SRC = '/templates/coupon 4/coupon-template-4-base.png';
+const TEMPLATE_4_REFERENCE_SRC = '/templates/coupon 4/coupon-template-4-reference.png';
 
 const TEMPLATE_PRESETS = {
   template1: {
@@ -33,6 +35,14 @@ const TEMPLATE_PRESETS = {
     bgColor: '#FFFFFF',
     title: '쿠폰텍스트를입력해주세요18자',
     date: '쿠폰텍스트를입력해주세요18자',
+  },
+  template4: {
+    label: '4번 무신사 티켓 쿠폰',
+    baseSrc: TEMPLATE_4_BASE_SRC,
+    referenceSrc: TEMPLATE_4_REFERENCE_SRC,
+    bgColor: '#FFFFFF',
+    title: '쿠폰명 공백 포함 최대 18자 이내',
+    date: '5일 23:10:39 남음',
   },
 };
 
