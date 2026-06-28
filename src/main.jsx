@@ -15,7 +15,7 @@ const TEMPLATE_4_REFERENCE_SRC = '/templates/coupon 4/coupon-template-4-referenc
 
 const TEMPLATE_PRESETS = {
   template0: {
-    label: '0번 무신사 티켓 쿠폰',
+    label: 'test1',
     baseSrc: TEMPLATE_0_BASE_SRC,
     referenceSrc: TEMPLATE_0_REFERENCE_SRC,
     autoDetect: false,
@@ -30,9 +30,9 @@ const TEMPLATE_PRESETS = {
         paddingX: 0,
         paddingY: 0,
         corners: {
-          topLeft: [1506, 1887],
-          topRight: [2523, 1534],
-          bottomRight: [2574, 1608],
+          topLeft: [1499, 1888],
+          topRight: [2532, 1528],
+          bottomRight: [2584, 1601],
           bottomLeft: [1553, 1963],
         },
       },
@@ -52,7 +52,7 @@ const TEMPLATE_PRESETS = {
     },
   },
   template1: {
-    label: '1번 오프닝 쿠폰',
+    label: 'test2',
     baseSrc: TEMPLATE_1_BASE_SRC,
     referenceSrc: TEMPLATE_1_REFERENCE_SRC,
     bgColor: '#FE4900',
@@ -60,7 +60,7 @@ const TEMPLATE_PRESETS = {
     date: '2026.06.16까지',
   },
   template2: {
-    label: '2번 쇼핑 지원 쿠폰',
+    label: 'test3',
     baseSrc: TEMPLATE_2_BASE_SRC,
     referenceSrc: TEMPLATE_2_REFERENCE_SRC,
     bgColor: '#FFFFFF',
@@ -68,7 +68,7 @@ const TEMPLATE_PRESETS = {
     date: '무신사만의 쇼핑 혜택',
   },
   template3: {
-    label: '3번 무신사 티켓 쿠폰',
+    label: 'test4',
     baseSrc: TEMPLATE_3_BASE_SRC,
     referenceSrc: TEMPLATE_3_REFERENCE_SRC,
     bgColor: '#FFFFFF',
@@ -76,7 +76,7 @@ const TEMPLATE_PRESETS = {
     date: '쿠폰텍스트를입력해주세요18자',
   },
   template4: {
-    label: '4번 무신사 티켓 쿠폰',
+    label: 'test5',
     baseSrc: TEMPLATE_4_BASE_SRC,
     referenceSrc: TEMPLATE_4_REFERENCE_SRC,
     autoDetect: false,
