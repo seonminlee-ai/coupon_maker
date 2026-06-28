@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client';
 import './style.css';
 
+const TEMPLATE_0_BASE_SRC = '/templates/coupon 0/coupon-template-0-base.png';
+const TEMPLATE_0_REFERENCE_SRC = '/templates/coupon 0/coupon-template-0-reference.png';
 const TEMPLATE_1_BASE_SRC = '/templates/opening-coupon/coupon-template-1-base.png';
 const TEMPLATE_1_REFERENCE_SRC = '/templates/opening-coupon/coupon-template-1-reference.png';
 const TEMPLATE_2_BASE_SRC = '/templates/opening-coupon/coupon-template-2-base.png';
@@ -12,6 +14,43 @@ const TEMPLATE_4_BASE_SRC = '/templates/coupon 4/coupon-template-4-base.png';
 const TEMPLATE_4_REFERENCE_SRC = '/templates/coupon 4/coupon-template-4-reference.png';
 
 const TEMPLATE_PRESETS = {
+  template0: {
+    label: '0번 무신사 티켓 쿠폰',
+    baseSrc: TEMPLATE_0_BASE_SRC,
+    referenceSrc: TEMPLATE_0_REFERENCE_SRC,
+    autoDetect: false,
+    bgColor: '#FFFFFF',
+    title: '쿠폰명 공백 포함 최대 18자 이내',
+    date: '5일 23:10:39 남음',
+    textBlocks: {
+      main: {
+        sourceWidth: 1121,
+        sourceHeight: 167,
+        font: '600 108px Pretendard, Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif',
+        paddingX: 0,
+        paddingY: 0,
+        corners: {
+          topLeft: [1495, 1886],
+          topRight: [2530, 1457],
+          bottomRight: [2594, 1611],
+          bottomLeft: [1559, 2040],
+        },
+      },
+      sub: {
+        sourceWidth: 558,
+        sourceHeight: 112,
+        font: '400 72px Pretendard, Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif',
+        paddingX: 0,
+        paddingY: 0,
+        corners: {
+          topLeft: [1578, 2014],
+          topRight: [2093, 1801],
+          bottomRight: [2136, 1904],
+          bottomLeft: [1621, 2118],
+        },
+      },
+    },
+  },
   template1: {
     label: '1번 오프닝 쿠폰',
     baseSrc: TEMPLATE_1_BASE_SRC,
