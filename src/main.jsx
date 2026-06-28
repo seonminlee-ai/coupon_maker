@@ -40,45 +40,92 @@ const TEMPLATE_PRESETS = {
     label: '4번 무신사 티켓 쿠폰',
     baseSrc: TEMPLATE_4_BASE_SRC,
     referenceSrc: TEMPLATE_4_REFERENCE_SRC,
+    autoDetect: false,
     bgColor: '#FFFFFF',
     title: '쿠폰명 공백 포함 최대 18자 이내',
     date: '5일 23:10:39 남음',
-  },
-};
-
-function createTemplateConfig(preset) {
-  return {
-    bgColor: preset.bgColor,
-    title: preset.title,
-    date: preset.date,
     textBlocks: {
       main: {
         sourceWidth: 620,
         sourceHeight: 58,
         font: '600 42px Pretendard, Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif',
-        paddingX: 10,
-        paddingY: 8,
+        paddingX: 0,
+        paddingY: 0,
         corners: {
-          topLeft: [217, 322],
-          topRight: [754, 375],
-          bottomRight: [747, 409],
-          bottomLeft: [210, 355],
+          topLeft: [1300, 1045],
+          topRight: [2545, 1265],
+          bottomRight: [2520, 1385],
+          bottomLeft: [1275, 1160],
         },
       },
       sub: {
         sourceWidth: 620,
         sourceHeight: 44,
         font: '400 30px Pretendard, Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif',
-        paddingX: 10,
-        paddingY: 7,
+        paddingX: 0,
+        paddingY: 0,
         corners: {
-          topLeft: [208, 365],
-          topRight: [746, 419],
-          bottomRight: [741, 447],
-          bottomLeft: [203, 392],
+          topLeft: [1230, 1175],
+          topRight: [1815, 1280],
+          bottomRight: [1800, 1360],
+          bottomLeft: [1215, 1250],
         },
       },
     },
+  },
+};
+
+function createDefaultTextBlocks() {
+  return {
+    main: {
+      sourceWidth: 620,
+      sourceHeight: 58,
+      font: '600 42px Pretendard, Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif',
+      paddingX: 10,
+      paddingY: 8,
+      corners: {
+        topLeft: [217, 322],
+        topRight: [754, 375],
+        bottomRight: [747, 409],
+        bottomLeft: [210, 355],
+      },
+    },
+    sub: {
+      sourceWidth: 620,
+      sourceHeight: 44,
+      font: '400 30px Pretendard, Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif',
+      paddingX: 10,
+      paddingY: 7,
+      corners: {
+        topLeft: [208, 365],
+        topRight: [746, 419],
+        bottomRight: [741, 447],
+        bottomLeft: [203, 392],
+      },
+    },
+  };
+}
+
+function cloneTextBlocks(textBlocks) {
+  return Object.fromEntries(
+    Object.entries(textBlocks).map(([blockKey, block]) => ([
+      blockKey,
+      {
+        ...block,
+        corners: Object.fromEntries(
+          Object.entries(block.corners).map(([cornerKey, value]) => [cornerKey, [...value]]),
+        ),
+      },
+    ])),
+  );
+}
+
+function createTemplateConfig(preset) {
+  return {
+    bgColor: preset.bgColor,
+    title: preset.title,
+    date: preset.date,
+    textBlocks: cloneTextBlocks(preset.textBlocks ?? createDefaultTextBlocks()),
   };
 }
 
@@ -611,8 +658,9 @@ function App() {
 
   useEffect(() => {
     if (!baseImage || !referenceImage || autoDetectDoneRef.current) return;
+    if (TEMPLATE_PRESETS[selectedTemplateId]?.autoDetect === false) return;
     applyAutoDetect();
-  }, [applyAutoDetect, baseImage, referenceImage]);
+  }, [applyAutoDetect, baseImage, referenceImage, selectedTemplateId]);
 
   const textLayers = useMemo(() => ([
     { key: 'main', text: template.title, label: textBlockLabels.main },
